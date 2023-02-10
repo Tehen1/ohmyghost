@@ -91,7 +91,7 @@ module.exports = {
 
             this.controller.receive({
                 data: {
-                    source: 'https://kotaku.com/tf2-team-fortress-2-update-new-content-summer-pc-valve-1850096628',
+                    source: 'https://qz.com/adidas-loss-2023-yeezy-kanye-west-1850097959',
                     target: 'http://localhost:2368/'
                 }
             });
