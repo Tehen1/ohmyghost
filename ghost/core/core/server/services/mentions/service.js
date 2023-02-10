@@ -83,6 +83,24 @@ module.exports = {
             }
         });
 
+        const addMocks = () => {
+            if (!urlService.hasFinished()) {
+                setTimeout(addMocks, 100);
+                return;
+            }
+
+            this.controller.receive({
+                data: {
+                    source: 'https://kotaku.com/tf2-team-fortress-2-update-new-content-summer-pc-valve-1850096628',
+                    target: 'http://localhost:2368/'
+                }
+            });
+
+            return;
+        };
+
+        addMocks();
+
         const sendingService = new MentionSendingService({
             discoveryService,
             externalRequest,

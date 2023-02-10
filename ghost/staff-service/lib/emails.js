@@ -171,6 +171,7 @@ class StaffServiceEmails {
                 sourceFavicon: mention.sourceFavicon,
                 sourceAuthor: mention.sourceAuthor,
                 resource,
+                resourceName: resource.name,
                 siteTitle: this.settingsCache.get('title'),
                 siteUrl: this.urlUtils.getSiteUrl(),
                 siteDomain: this.siteDomain,
