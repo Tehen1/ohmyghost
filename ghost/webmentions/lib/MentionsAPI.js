@@ -152,6 +152,8 @@ module.exports = class MentionsAPI {
 
         const resourceInfo = await this.#resourceService.getByURL(webmention.target);
 
+        console.log({target: webmention.target, resourceInfo});
+
         let metadata;
         try {
             metadata = await this.#webmentionMetadata.fetch(webmention.source);
@@ -166,6 +168,7 @@ module.exports = class MentionsAPI {
                 });
             }
         } catch (err) {
+            console.log(err);
             if (!mention) {
                 throw err;
             }

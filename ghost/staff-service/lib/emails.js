@@ -145,6 +145,8 @@ class StaffServiceEmails {
     async notifyMentionReceived({mention}) {
         const users = await this.models.User.getEmailAlertUsers('mention-received');
         let resource = null;
+        console.log(JSON.stringify(mention, null, 2));
+        console.log(mention.resourceId);
         if (mention.resourceId) {
             try {
                 const postModel = await this.models.Post.findOne({id: mention.resourceId.toString()});
@@ -179,7 +181,10 @@ class StaffServiceEmails {
                 toEmail: to,
                 staffUrl: this.urlUtils.urlJoin(this.urlUtils.urlFor('admin', true), '#', `/settings/staff/${user.slug}`)
             };
+            console.log({templateData});
+
             const {html, text} = await this.renderEmailTemplate('new-mention-received', templateData);
+            console.log({html, text});
 
             await this.sendMail({
                 to,

@@ -77,7 +77,8 @@ class StaffService {
 
     /** @private */
     async handleEvent(type, event) {
-        if (type === MentionCreatedEvent && event.data.mention && this.labs.isSet('webmentionEmail')) {
+        console.log({type, event});
+        if (type === MentionCreatedEvent && event.data.mention) {// && this.labs.isSet('webmentionEmail')) {
             try {
                 await this.emails.notifyMentionReceived(event.data);
             } catch (err) {
